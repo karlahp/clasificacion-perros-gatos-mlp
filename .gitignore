@@ -1,0 +1,13 @@
+# Dataset (archivos pesados, no se versionan)
+data/*.zip
+data/images/
+data/annotations/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Entorno
+.env
+venv/
