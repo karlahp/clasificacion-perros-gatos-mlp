@@ -68,15 +68,39 @@ en otra. Esta decisión se toma para:
 ## 5. Preparación y análisis exploratorio de los datos (EDA)
 
 ### 5.1 Carga y organización de los datos
-- Cantidad total de imágenes utilizadas: `[completar]`
-- Cantidad de imágenes por clase (perro / gato): `[completar]`
-- Formato y resolución original de las imágenes: `[completar]`
+Se trabajó con 7.390 imágenes del dataset Oxford-IIIT Pet, etiquetadas como "perro" o 
+"gato" según la convención de nombres del dataset (mayúscula inicial = gato, minúscula = perro).
 
 ### 5.2 Calidad de los datos
-- Revisión de imágenes corruptas o ilegibles: `[completar]`
-- Balance entre clases (¿hay más imágenes de una clase que de otra?): `[completar]`
+Se detectó un **desbalance de clases**: 4.990 imágenes de perro (67.5%) y 2.400 de gato 
+(32.5%). También se confirmó que las imágenes tienen **tamaños variables** (desde 287x300 
+hasta 762x571 píxeles, promedio 437x402 px), por lo que fue necesario redimensionarlas 
+a un tamaño uniforme antes del entrenamiento.
 
 ### 5.3 Visualizaciones
-- Ejemplos representativos de cada clase (grilla de imágenes).
-- Distribución de tamaños/resoluciones de las imágenes.
-- Gráfico de barras con el conteo de imágenes
+Se generaron gráficos de distribución de clases y grillas de ejemplos representativos de 
+cada clase (ver `images/distribucion_clases.png` y `images/ejemplos_por_clase.png`).
+
+### 5.4 Observaciones y dificultades
+La alta variabilidad de iluminación, postura y fondo entre imágenes, sumada al desbalance 
+de clases, representan las principales dificultades detectadas para este problema de 
+clasificación.
+
+## 6. Metodología utilizada (CRISP-DM)
+
+Este proyecto sigue las etapas de la metodología CRISP-DM:
+
+1. **Comprensión del negocio**: definición del problema de clasificación perro/gato y su utilidad práctica.
+2. **Comprensión de los datos**: exploración del dataset Oxford-IIIT Pet (distribución de clases, tamaños, calidad).
+3. **Preparación de los datos**: redimensionamiento a 32x32 px, normalización y aplanado de imágenes.
+4. **Modelamiento**: diseño y entrenamiento de un MLP con 2 capas ocultas (128 y 64 neuronas).
+5. **Evaluación**: análisis de métricas (Accuracy, Precision, Recall, F1-Score, Matriz de Confusión) y de errores específicos.
+6. **Despliegue**: no aplica en esta etapa del proyecto (evaluación académica).
+
+## 7. Resultados y conclusiones
+
+El modelo alcanzó un accuracy general de 69%, pero un análisis por clase reveló un sesgo 
+importante: F1-Score de 0.81 para "perro" versus solo 0.12 para "gato", producto del 
+desbalance de clases y de las limitaciones propias de un MLP para procesar imágenes (pérdida 
+de información espacial al aplanar). Como mejoras futuras se propone aplicar balanceo de 
+clases y considerar arquitecturas como CNN, que preservan la estructura espacial de la imagen.
