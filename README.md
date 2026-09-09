@@ -55,6 +55,15 @@ Kaggle: https://www.kaggle.com/datasets/tanlikesmath/the-oxfordiiit-pet-dataset
 - 37 clases (razas distintas de perros y gatos)
 - Variabilidad en iluminación, postura y fondo de las imágenes
 
+**Justificación de la elección del dataset:**
+Se seleccionó el dataset Oxford-IIIT Pet por sobre las otras alternativas disponibles 
+(Intel Image Classification, Los Simpson, PlantVillage) porque plantea un problema de 
+clasificación con relevancia práctica directa (identificación de mascotas), cuenta con 
+un tamaño de dataset manejable dentro del tiempo disponible para la evaluación, y su 
+variabilidad natural en iluminación, postura y fondo lo convierte en un caso de estudio 
+realista para evaluar las capacidades y limitaciones de un modelo MLP frente a 
+condiciones no controladas.
+
 **Variante definida para este proyecto:**
 Para efectos de esta evaluación, se reduce el problema a una **clasificación binaria**: 
 perro vs. gato, agrupando todas las razas de perro en una clase y todas las razas de gato 
